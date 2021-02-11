@@ -3,7 +3,8 @@
 <div class="text-center mt-4">
   <% if logged_in? and @user == current_user %>
     <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-info" %>
-    <% end %>
+    <%= link_to "Delete Profile", user_path(@user), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+  <% end %>
 </div>
 
 <h3 class="text-center mt-4"> <%= @user.username %>'s Articles </h3>
