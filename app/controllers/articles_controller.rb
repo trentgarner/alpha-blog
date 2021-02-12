@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
   end
 
   private
-  
+
   def set_article
   @article = Article.find(params[:id])
   end
@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @article.user
+    if current_user != @article.user && !current_user.admin?
       flash[:alert] = "You cannot edit others articles."
       redirect_to @article
     end
