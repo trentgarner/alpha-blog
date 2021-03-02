@@ -20,10 +20,20 @@
                 <% end %>
                 <%= link_to "View Articles", articles_path, class: "dropdown-item" %>
             </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <% if logged_in? && current_user.admin? %>
+                  <%= link_to "Create New Category", new_category_path, class: "dropdown-item" %>
+                <% end %>
+                <%= link_to "View Categories", categories_path, class: "dropdown-item" %>
+            </li>
             <% if logged_in? %>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= "(Admin)" if current_user.admin? %>[<%= current_user.username %>] 
+                  <%= "(Admin)" if current_user.admin? %>[<%= current_user.username %>]
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
