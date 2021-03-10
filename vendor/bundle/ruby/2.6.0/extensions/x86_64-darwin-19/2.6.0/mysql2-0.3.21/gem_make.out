@@ -1,0 +1,73 @@
+current directory: /Users/trentgarner/projects/alpha-blog/vendor/bundle/ruby/2.6.0/gems/mysql2-0.3.21/ext/mysql2
+/Users/trentgarner/.rvm/rubies/ruby-2.6.3/bin/ruby -I /Users/trentgarner/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210309-38907-afm4ik.rb extconf.rb
+checking for ruby/thread.h... yes
+checking for rb_thread_call_without_gvl() in ruby/thread.h... yes
+checking for rb_thread_blocking_region()... no
+checking for rb_wait_for_single_fd()... yes
+checking for rb_hash_dup()... yes
+checking for rb_intern3()... yes
+-----
+Using mysql_config at /usr/local/bin/mysql_config
+-----
+checking for mysql.h... yes
+checking for errmsg.h... yes
+checking for mysqld_error.h... yes
+-----
+Setting rpath to /usr/local/Cellar/mysql/8.0.23_1/lib
+-----
+creating Makefile
+
+current directory: /Users/trentgarner/projects/alpha-blog/vendor/bundle/ruby/2.6.0/gems/mysql2-0.3.21/ext/mysql2
+make "DESTDIR=" clean
+
+current directory: /Users/trentgarner/projects/alpha-blog/vendor/bundle/ruby/2.6.0/gems/mysql2-0.3.21/ext/mysql2
+make "DESTDIR="
+compiling client.c
+client.c:367:33: warning: implicit conversion loses integer precision: 'long' to 'unsigned int' [-Wshorten-64-to-32]
+        elapsed_time = end_time - start_time;
+                     ~ ~~~~~~~~~^~~~~~~~~~~~
+client.c:439:3: error: use of undeclared identifier 'my_bool'
+  my_bool res = mysql_read_query_result(client);
+  ^
+client.c:441:19: error: use of undeclared identifier 'res'
+  return (void *)(res == 0 ? Qtrue : Qfalse);
+                  ^
+client.c:762:3: error: use of undeclared identifier 'my_bool'
+  my_bool boolval;
+  ^
+client.c:793:7: error: use of undeclared identifier 'boolval'
+      boolval = (value == Qfalse ? 0 : 1);
+      ^
+client.c:794:17: error: use of undeclared identifier 'boolval'
+      retval = &boolval;
+                ^
+client.c:797:10: error: use of undeclared identifier 'MYSQL_SECURE_AUTH'; did you mean 'MYSQL_DEFAULT_AUTH'?
+    case MYSQL_SECURE_AUTH:
+         ^~~~~~~~~~~~~~~~~
+         MYSQL_DEFAULT_AUTH
+/usr/local/Cellar/mysql/8.0.23_1/include/mysql/mysql.h:187:3: note: 'MYSQL_DEFAULT_AUTH' declared here
+  MYSQL_DEFAULT_AUTH,
+  ^
+client.c:798:7: error: use of undeclared identifier 'boolval'
+      boolval = (value == Qfalse ? 0 : 1);
+      ^
+client.c:799:17: error: use of undeclared identifier 'boolval'
+      retval = &boolval;
+                ^
+client.c:830:38: error: use of undeclared identifier 'boolval'
+        wrapper->reconnect_enabled = boolval;
+                                     ^
+client.c:1152:56: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'unsigned int' [-Wshorten-64-to-32]
+  mysql2rb = mysql2_mysql_enc_name_to_rb(charset_name, charset_name_len);
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~               ^~~~~~~~~~~~~~~~
+client.c:1185:38: error: use of undeclared identifier 'MYSQL_SECURE_AUTH'; did you mean 'MYSQL_DEFAULT_AUTH'?
+  return _mysql_client_options(self, MYSQL_SECURE_AUTH, value);
+                                     ^~~~~~~~~~~~~~~~~
+                                     MYSQL_DEFAULT_AUTH
+/usr/local/Cellar/mysql/8.0.23_1/include/mysql/mysql.h:187:3: note: 'MYSQL_DEFAULT_AUTH' declared here
+  MYSQL_DEFAULT_AUTH,
+  ^
+2 warnings and 10 errors generated.
+make: *** [client.o] Error 1
+
+make failed, exit code 2
